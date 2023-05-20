@@ -1,0 +1,27 @@
+---
+- hosts: all
+  become: true
+  vars:
+    -  envs/certbot.yml
+
+          #    container_count: 4
+          #    default_container_name: docker
+          #    default_container_image: ubuntu
+          #    default_container_command: sleep 1d
+          #    certbot_email: test@gmail.com
+          #    certbot_hosts: 
+
+
+  tasks:
+    -  import_tasks: tasks/setup_docker.yml
+    -  import_tasks: tasks/setup_certbot.yml
+    -  import_tasks: tasks/generate_certificates.yml
+    -  import_tasks: tasks/create_user.yml
+
+  handlers:
+    - name:  Start docker on boot       
+      systemd:
+              name: docker
+              state: started
+              enabled: yes    
+

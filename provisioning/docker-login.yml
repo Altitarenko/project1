@@ -1,0 +1,15 @@
+---
+- name: login to dockerhub
+  hosts: all
+  remote_user: root
+  become: yes
+  become_user: deploy
+  vars_prompt:
+          - name: username
+            prompt: "Username"
+            private: no
+          - name: password
+            prompt: "Password"
+  tasks: 
+          - name: log into
+            shell: "docker login -u {{ username }} -p {{ password }}"

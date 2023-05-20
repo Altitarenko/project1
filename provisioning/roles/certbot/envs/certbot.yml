@@ -1,0 +1,5 @@
+certbot_email: test@gmail.com
+certbot_hosts: 
+   - racoonden.site
+   - site.racoonden.site
+    

@@ -1,0 +1,16 @@
+---
+- name: Preparing server
+  hosts: site
+  remote_user: root
+  roles:
+          - docker
+          - certbot
+          - site
+
+
+#- name: Preparing BD 
+#  hosts: db
+#  remote_user: root
+#  roles:
+#          - db
+

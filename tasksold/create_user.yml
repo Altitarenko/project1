@@ -1,0 +1,8 @@
+---
+- name: create user
+  user: 
+     name: deploy
+     password: '!'
+     groups: 
+        - docker
+     state: present
